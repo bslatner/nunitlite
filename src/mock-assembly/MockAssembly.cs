@@ -58,7 +58,7 @@ namespace NUnit.Tests
 
 			public static int Categories = MockTestFixture.Categories;
 
-#if !NETCF
+#if !NETCF && !WINDOWS_PHONE
             public static string AssemblyPath = AssemblyHelper.GetAssemblyPath(typeof(MockAssembly).Assembly);
 #endif
 		}

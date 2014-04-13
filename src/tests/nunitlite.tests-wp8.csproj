@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3AC7AE40-12CA-4DB3-AD89-F28A9DED206A}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NUnitLite.Tests</RootNamespace>
+    <AssemblyName>nunitlite.tests</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>nunitlite.tests_wp8_$(Configuration)_$(Platform).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>NUnitLite.Tests.AppWP8</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;NET_4_0;CLR_4_0;NUNITLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;NET_4_0;CLR_4_0;NUNITLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug\wp8\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;NET_4_0;CLR_4_0;NUNITLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release\wp8\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;NET_4_0;CLR_4_0;NUNITLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;NET_4_0;CLR_4_0;NUNITLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;NET_4_0;CLR_4_0;NUNITLITE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\framework\nunitlite-wp8.csproj">
+      <Project>{1ECAB195-835C-4E23-BC05-A6960424438C}</Project>
+      <Name>nunitlite-wp8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\mock-assembly\mock-assembly-wp8.csproj">
+      <Project>{ED8C71DC-F4C2-43A5-B8CB-69A26418DB42}</Project>
+      <Name>mock-assembly-wp8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\testdata\nunitlite.testdata-wp8.csproj">
+      <Project>{E1D29035-06F0-4641-9DA3-02DC751EFE7D}</Project>
+      <Name>nunitlite.testdata-wp8</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppWP8.xaml.cs">
+      <DependentUpon>AppWP8.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="Api\ResultStateTests.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Assertions\ArrayEqualsFailureMessageFixture.cs" />
+    <Compile Include="Assertions\ArrayEqualsFixture.cs" />
+    <Compile Include="Assertions\ArrayNotEqualFixture.cs" />
+    <Compile Include="Assertions\AssertFailTests.cs" />
+    <Compile Include="Assertions\AssertIgnoreTests.cs" />
+    <Compile Include="Assertions\AssertInconclusiveTests.cs" />
+    <Compile Include="Assertions\AssertPassTests.cs" />
+    <Compile Include="Assertions\AssertThatTests.cs" />
+    <Compile Include="Assertions\AssertThrowsTests.cs" />
+    <Compile Include="Assertions\AssumeThatTests.cs" />
+    <Compile Include="Assertions\AsyncThrowsTests.cs" />
+    <Compile Include="Assertions\CollectionTests.cs" />
+    <Compile Include="Assertions\ConditionAssertTests.cs" />
+    <Compile Include="Assertions\EqualsFixture.cs" />
+    <Compile Include="Assertions\MessageChecker.cs" />
+    <Compile Include="Assertions\NotEqualFixture.cs" />
+    <Compile Include="Assertions\NotSameFixture.cs" />
+    <Compile Include="Assertions\NullableTypesTests.cs" />
+    <Compile Include="Assertions\SameFixture.cs" />
+    <Compile Include="Attributes\ApplyToTestTests.cs" />
+    <Compile Include="Attributes\AttributeInheritanceTests.cs" />
+    <Compile Include="Attributes\CategoryAttributeTests.cs" />
+    <Compile Include="Attributes\CombinatorialTests.cs" />
+    <Compile Include="Attributes\DatapointTests.cs" />
+    <Compile Include="Attributes\DescriptionTests.cs" />
+    <Compile Include="Attributes\ExpectedExceptionTests.cs" />
+    <Compile Include="Attributes\FixtureSetUpTearDownTests.cs" />
+    <Compile Include="Attributes\MaxTimeTests.cs" />
+    <Compile Include="Attributes\PairwiseTests.cs" />
+    <Compile Include="Attributes\ParameterizedTestFixtureTests.cs" />
+    <Compile Include="Attributes\PropertyAttributeTests.cs" />
+    <Compile Include="Attributes\RepeatedTestTests.cs" />
+    <Compile Include="Attributes\SetCultureAttributeTests.cs" />
+    <Compile Include="Attributes\TestCaseAttributeTests.cs" />
+    <Compile Include="Attributes\TestCaseSourceTests.cs" />
+    <Compile Include="Attributes\TestDummy.cs" />
+    <Compile Include="Attributes\TestFixtureAttributeTests.cs" />
+    <Compile Include="Attributes\TheoryTests.cs" />
+    <Compile Include="Attributes\TimeoutTests.cs" />
+    <Compile Include="Attributes\ValuesAttributeTests.cs" />
+    <Compile Include="Attributes\ValueSourceTests.cs" />
+    <Compile Include="Constraints\AllItemsConstraintTests.cs" />
+    <Compile Include="Constraints\AndConstraintTests.cs" />
+    <Compile Include="Constraints\AssignableFromConstraintTests.cs" />
+    <Compile Include="Constraints\AssignableToConstraintTests.cs" />
+    <Compile Include="Constraints\AsyncDelayedConstraintTests.cs" />
+    <Compile Include="Constraints\AttributeExistsConstraintTests.cs" />
+    <Compile Include="Constraints\BasicConstraintTests.cs" />
+    <Compile Include="Constraints\BinarySerializableTest.cs" />
+    <Compile Include="Constraints\CollectionContainsConstraintTests.cs" />
+    <Compile Include="Constraints\CollectionEquivalentConstraintTests.cs" />
+    <Compile Include="Constraints\CollectionOrderedConstraintTests.cs" />
+    <Compile Include="Constraints\CollectionSubsetConstraintTests.cs" />
+    <Compile Include="Constraints\ComparisonConstraintTest.cs" />
+    <Compile Include="Constraints\ConstraintTestBase.cs" />
+    <Compile Include="Constraints\EmptyConstraintTest.cs" />
+    <Compile Include="Constraints\EndsWithConstraintTests.cs" />
+    <Compile Include="Constraints\EqualConstraintTests.cs" />
+    <Compile Include="Constraints\ExactCountConstraintTests.cs" />
+    <Compile Include="Constraints\ExactTypeConstraintTests.cs" />
+    <Compile Include="Constraints\FloatingPointNumericsTest.cs" />
+    <Compile Include="Constraints\GreaterThanConstraintTests.cs" />
+    <Compile Include="Constraints\GreaterThanOrEqualConstraintTests.cs" />
+    <Compile Include="Constraints\InstanceOfTypeConstraintTests.cs" />
+    <Compile Include="Constraints\LessThanConstraintTests.cs" />
+    <Compile Include="Constraints\LessThanOrEqualConstraintTests.cs" />
+    <Compile Include="Constraints\MessageWriterTests.cs" />
+    <Compile Include="Constraints\MsgUtilTests.cs" />
+    <Compile Include="Constraints\NotConstraintTests.cs" />
+    <Compile Include="Constraints\NumericsTest.cs" />
+    <Compile Include="Constraints\NUnitComparerTests.cs" />
+    <Compile Include="Constraints\NUnitEqualityComparerTests.cs" />
+    <Compile Include="Constraints\OrConstraintTests.cs" />
+    <Compile Include="Constraints\PathConstraintTests.cs" />
+    <Compile Include="Constraints\PredicateConstraintTests.cs" />
+    <Compile Include="Constraints\PropertyTests.cs" />
+    <Compile Include="Constraints\RangeConstraintTests.cs" />
+    <Compile Include="Constraints\RangeTests.cs" />
+    <Compile Include="Constraints\ReusableConstraintTests.cs" />
+    <Compile Include="Constraints\SameAsTest.cs" />
+    <Compile Include="Constraints\StartsWithConstraintTests.cs" />
+    <Compile Include="Constraints\SubstringConstraintTests.cs" />
+    <Compile Include="Constraints\TestDelegates.cs" />
+    <Compile Include="Constraints\ThrowsConstraintTests.cs" />
+    <Compile Include="Constraints\ToStringTests.cs" />
+    <Compile Include="Constraints\UniqueItemsConstraintTests.cs" />
+    <Compile Include="Constraints\XmlSerializableTest.cs" />
+    <Compile Include="Framework\StackFilterTest.cs" />
+    <Compile Include="Framework\SyntaxTests.cs" />
+    <Compile Include="Framework\TestResultTests.cs" />
+    <Compile Include="Internal\AsyncTestMethodTests.cs" />
+    <Compile Include="Internal\CultureSettingAndDetectionTests.cs" />
+    <Compile Include="Internal\DeduceTypeArgsFromArgs.cs" />
+    <Compile Include="Internal\GenericTestFixtureTests.cs" />
+    <Compile Include="Internal\GenericTestMethodTests.cs" />
+    <Compile Include="Internal\NUnitTestCaseBuilderTests.cs" />
+    <Compile Include="Internal\PlatformDetectionTests.cs" />
+    <Compile Include="Internal\PropertyBagTests.cs" />
+    <Compile Include="Internal\RandomGeneratorTests.cs" />
+    <Compile Include="Internal\RandomizerTests.cs" />
+    <Compile Include="Internal\RuntimeFrameworkTests.cs" />
+    <Compile Include="Internal\SetUpTest.cs" />
+    <Compile Include="Internal\SimpleGenericMethods.cs" />
+    <Compile Include="Internal\TestExecutionContextTests.cs" />
+    <Compile Include="Internal\TestFixtureTests.cs" />
+    <Compile Include="Internal\TestMethodSignatureTests.cs" />
+    <Compile Include="Internal\TestResultTests.cs" />
+    <Compile Include="Internal\TestXmlTests.cs" />
+    <Compile Include="Internal\TextMessageWriterTests.cs" />
+    <Compile Include="Internal\TypeParameterUsedWithTestMethod.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="RecordingTestListener.cs" />
+    <Compile Include="Resources\AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Runner\CommandLineOptionTests.cs" />
+    <Compile Include="Runner\NUnit2XmlOutputWriterTests.cs" />
+    <Compile Include="Syntax\ArbitraryConstraintMatching.cs" />
+    <Compile Include="Syntax\CollectionTests.cs" />
+    <Compile Include="Syntax\ComparisonTests.cs" />
+    <Compile Include="Syntax\EqualityTests.cs" />
+    <Compile Include="Syntax\OperatorOverrides.cs" />
+    <Compile Include="Syntax\OperatorTests.cs" />
+    <Compile Include="Syntax\PathConstraintTests.cs" />
+    <Compile Include="Syntax\PropertyTests.cs" />
+    <Compile Include="Syntax\SerializableConstraints.cs" />
+    <Compile Include="Syntax\SimpleConstraints.cs" />
+    <Compile Include="Syntax\StringConstraints.cs" />
+    <Compile Include="Syntax\SyntaxTest.cs" />
+    <Compile Include="Syntax\ThrowsTests.cs" />
+    <Compile Include="Syntax\TypeConstraints.cs" />
+    <Compile Include="TestUtilities\Collections\SimpleObjectCollection.cs" />
+    <Compile Include="TestUtilities\Collections\SimpleObjectList.cs" />
+    <Compile Include="TestUtilities\Comparers\AlwaysEqualComparer.cs" />
+    <Compile Include="TestUtilities\Comparers\SimpleEqualityComparer.cs" />
+    <Compile Include="TestUtilities\Comparers\SimpleObjectComparer.cs" />
+    <Compile Include="TestUtilities\ResultSummary.cs" />
+    <Compile Include="TestUtilities\TestAssert.cs" />
+    <Compile Include="TestUtilities\TestBuilder.cs" />
+    <Compile Include="TestUtilities\TestComparer.cs" />
+    <Compile Include="TestUtilities\TestDelegates.cs" />
+    <Compile Include="TestUtilities\TestFinder.cs" />
+    <Compile Include="TestUtilities\UniqueValues.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileMedium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileMediumLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AppWP8.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <ProjectExtensions />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

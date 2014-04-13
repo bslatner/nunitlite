@@ -235,6 +235,7 @@ namespace NUnit.Framework.Internal
                 "Xbox");
         }
 
+#if !WINDOWS_PHONE
         [Test]
         public void DetectMacOSX()
         {
@@ -242,6 +243,7 @@ namespace NUnit.Framework.Internal
                 new OSPlatform(PlatformID.MacOSX, new Version(0, 0)),
                 "MacOSX");
         }
+#endif
 #endif
 
         [Test]

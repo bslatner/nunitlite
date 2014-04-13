@@ -93,7 +93,7 @@ namespace NUnit.Framework
             }
         }
 
-#if !NETCF
+#if !NETCF && !WINDOWS_PHONE
         /// <summary>
         /// Gets the directory containing the current test assembly.
         /// </summary>

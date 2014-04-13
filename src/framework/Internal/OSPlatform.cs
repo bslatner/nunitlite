@@ -243,7 +243,11 @@ namespace NUnit.Framework.Internal
         /// </summary>
         public bool IsMacOSX
         {
+#if WINDOWS_PHONE
+            get { return false; }
+#else
             get { return platform == PlatformID.MacOSX; }
+#endif
         }
 #endif
 
