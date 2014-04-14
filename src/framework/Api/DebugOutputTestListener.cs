@@ -9,7 +9,7 @@ namespace NUnitLite.Api
 
         public void TestStarted(ITest test)
         {
-            _Pending = string.Format("<{0}:", test.Name);
+            _Pending = string.Format("<{0}:", test.FullName);
         }
 
         public void TestFinished(ITestResult result)
