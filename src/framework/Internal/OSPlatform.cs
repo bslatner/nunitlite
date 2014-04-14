@@ -386,5 +386,17 @@ namespace NUnit.Framework.Internal
         {
             get { return IsNT6 && version.Minor == 8 && Product == ProductType.WorkStation; }
         }
+
+        public bool IsWindowsPhone8
+        {
+            get
+            {
+#if WINDOWS_PHONE
+                return version.Major == 8;
+#else
+                return false;
+#endif
+            }
+        }
     }
 }

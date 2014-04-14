@@ -50,7 +50,9 @@ namespace NUnit.Framework.Internal
         /// <summary>Silverlight</summary>
         Silverlight,
         /// <summary>MonoTouch</summary>
-        MonoTouch
+        MonoTouch,
+        /// <summary>Windows Phone</summary>
+        WindowsPhone
 	}
 
 	/// <summary>

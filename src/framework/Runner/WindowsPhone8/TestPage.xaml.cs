@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using NUnit.Framework.Api;
 using NUnit.Framework.Internal;
-using NUnitLite.Runner.Silverlight;
+using NUnit.Framework.Internal.Filters;
 
 namespace NUnitLite.Runner.WindowsPhone8
 {
@@ -14,6 +15,29 @@ namespace NUnitLite.Runner.WindowsPhone8
         public Assembly callingAssembly;
         private ITestAssemblyRunner runner;
         private TextWriter writer;
+        private ITestResult result;
+
+        private class DebugTestListener : ITestListener
+        {
+            private readonly TestPage owner;
+
+            public DebugTestListener(TestPage owner)
+            {
+                this.owner = owner;
+            }
+
+            public void TestStarted(ITest test)
+            {
+                owner.Write(string.Format("<{0}:", test.Name));
+            }
+
+            public void TestFinished(ITestResult result)
+            {
+                owner.WriteLine(string.Format(":{0}>", result.ResultState));
+            }
+
+            public void TestOutput(TestOutput output) { }
+        }
 
         public TestPage()
         {
@@ -32,7 +56,19 @@ namespace NUnitLite.Runner.WindowsPhone8
             if (!LoadTestAssembly())
                 writer.WriteLine("No tests found in assembly {0}", GetAssemblyName(callingAssembly));
             else
-                Dispatcher.BeginInvoke(() => ExecuteTests());
+            {
+                Task.Factory.StartNew(ExecuteTests, TaskCreationOptions.LongRunning);
+            }
+        }
+
+        private void Write(string message)
+        {
+            Dispatcher.BeginInvoke(() => writer.Write(message));
+        }
+
+        private void WriteLine(string message)
+        {
+            Dispatcher.BeginInvoke(() => writer.WriteLine(message));
         }
 
         #region Helper Methods
@@ -49,12 +85,17 @@ namespace NUnitLite.Runner.WindowsPhone8
 
         private void ExecuteTests()
         {
-            ITestResult result = runner.Run(TestListener.NULL, TestFilter.Empty);
-            ResultReporter reporter = new ResultReporter(result, writer);
+            result = runner.Run(TestListener.NULL, TestFilter.Empty);
 
+            Dispatcher.BeginInvoke(ReportTestResults);
+        }
+
+        private void ReportTestResults()
+        {
+            var reporter = new ResultReporter(result, writer);
             reporter.ReportResults();
-
-            ResultSummary summary = reporter.Summary;
+            var summary = reporter.Summary;
+            writer.Flush();
 
             //this.Total.Text = summary.TestCount.ToString();
             //this.Failures.Text = summary.FailureCount.ToString();

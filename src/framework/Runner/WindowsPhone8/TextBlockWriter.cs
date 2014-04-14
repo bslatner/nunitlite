@@ -37,6 +37,7 @@ namespace NUnitLite.Runner.WindowsPhone8
     public class TextBlockWriter : TextWriter
     {
         private TextBlock textBlock;
+        private string PendingOutput = string.Empty;
 
         public TextBlockWriter(TextBlock textBlock)
         {
@@ -55,7 +56,7 @@ namespace NUnitLite.Runner.WindowsPhone8
         /// </exception>
         public override void Write(char value)
         {
-            textBlock.Text += value;
+            PendingOutput += value;
         }
 
         /// <summary>
@@ -70,7 +71,7 @@ namespace NUnitLite.Runner.WindowsPhone8
         /// </exception>
         public override void Write(string value)
         {
-            textBlock.Text += value;
+            PendingOutput += value;
         }
 
         /// <summary>
@@ -85,9 +86,19 @@ namespace NUnitLite.Runner.WindowsPhone8
         /// </exception>
         public override void WriteLine(string value)
         {
-            textBlock.Inlines.Add(value);
+            var output = PendingOutput + value;
+            textBlock.Inlines.Add(output);
             textBlock.Inlines.Add(new LineBreak());
-            Debug.WriteLine(value);
+            Debug.WriteLine(output);
+            PendingOutput = string.Empty;
+        }
+
+        public override void Flush()
+        {
+            if (PendingOutput.Length > 0)
+            {
+                WriteLine("");
+            }
         }
 
         /// <summary>

@@ -50,6 +50,7 @@ namespace NUnit.Framework.Attributes
         }
 
         [Test, Timeout(50)]
+        [Platform(Exclude = "WindowsPhone", Reason = "Not supported")]
         public void TestWithTimeoutRunsOnSeparateThread()
         {
             Assert.That(Thread.CurrentThread, Is.Not.EqualTo(parentThread));
@@ -63,6 +64,7 @@ namespace NUnit.Framework.Attributes
 
         [Test]
         [Platform(Exclude = "Mono", Reason = "Runner hangs at end when this is run")]
+        [Platform(Exclude = "WindowsPhone", Reason = "Runner hangs at end when this is run")]
         [Platform(Exclude = "Net-1.1,Net-1.0", Reason = "Cancels the run when executed")]
         public void TestWithInfiniteLoopTimesOut()
         {
@@ -77,6 +79,7 @@ namespace NUnit.Framework.Attributes
 
         [Test]
         [Platform(Exclude = "Mono", Reason = "Runner hangs at end when this is run")]
+        [Platform(Exclude = "WindowsPhone", Reason = "Runner hangs at end when this is run")]
         public void TimeoutCanBeSetOnTestFixture()
         {
             TestResult suiteResult = TestBuilder.RunTestFixture(typeof(ThreadingFixtureWithTimeout));

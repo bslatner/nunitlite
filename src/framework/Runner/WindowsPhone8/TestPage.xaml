@@ -10,8 +10,9 @@
     d:DesignHeight="480" d:DesignWidth="480" Loaded="UserControl_Loaded">
     
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
-        <ScrollViewer>
-            <TextBlock TextWrapping="Wrap" Text="" Name="ScratchArea" />
+        <ScrollViewer Grid.Row="0">
+            <TextBlock TextWrapping="Wrap" Text="" Name="ScratchArea" Height="auto" >
+            </TextBlock>
         </ScrollViewer>
 
     </Grid>

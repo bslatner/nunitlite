@@ -42,7 +42,7 @@ namespace NUnit.Framework.Internal
 		/// </summary>
 		public static readonly string OSPlatforms =
 #if (CLR_2_0 || CLR_4_0) && !NETCF
-            "Win,Win32,Win32S,Win32NT,Win32Windows,WinCE,Win95,Win98,WinMe,NT3,NT4,NT5,NT6,Win2K,WinXP,Win2003Server,Vista,Win2008Server,Win2008ServerR2,Win2012Server,Windows7,Windows8,Unix,Linux,Xbox,MacOSX";
+            "Win,Win32,Win32S,Win32NT,Win32Windows,WinCE,Win95,Win98,WinMe,NT3,NT4,NT5,NT6,Win2K,WinXP,Win2003Server,Vista,Win2008Server,Win2008ServerR2,Win2012Server,Windows7,Windows8,Unix,Linux,Xbox,MacOSX,WindowsPhone8";
 #else
 			"Win,Win32,Win32S,Win32NT,Win32Windows,WinCE,Win95,Win98,WinMe,NT3,NT4,NT5,NT6,Win2K,WinXP,Win2003Server,Vista,Win2008Server,Win2008ServerR2,Win2012Server,Windows7,Windows8,Unix,Linux";
 #endif
@@ -51,7 +51,7 @@ namespace NUnit.Framework.Internal
 		/// Comma-delimited list of all supported Runtime platform constants
 		/// </summary>
 		public static readonly string RuntimePlatforms =
-			"Net,NetCF,SSCLI,Rotor,Mono,MonoTouch";
+			"Net,NetCF,SSCLI,Rotor,Mono,MonoTouch,WindowsPhone8";
 
 		/// <summary>
 		/// Default constructor uses the operating system and
@@ -278,6 +278,9 @@ namespace NUnit.Framework.Internal
 
                 case "MONOTOUCH":
                     return IsRuntimeSupported(RuntimeType.MonoTouch, versionSpecification);
+
+                case "WINDOWSPHONE8":
+                    return IsRuntimeSupported(RuntimeType.WindowsPhone, versionSpecification);
 
                 default:
                     throw new ArgumentException("Invalid platform name", platformName);
