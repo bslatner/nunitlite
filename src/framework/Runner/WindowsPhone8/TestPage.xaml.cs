@@ -7,37 +7,18 @@ using System.Windows.Controls;
 using NUnit.Framework.Api;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Internal.Filters;
+using NUnitLite.Api;
 
 namespace NUnitLite.Runner.WindowsPhone8
 {
     public partial class TestPage : UserControl
     {
         public Assembly callingAssembly;
+        public ITestListener listener = TestListener.NULL;
+        public ITestFilter testFilter = TestFilter.Empty;
         private ITestAssemblyRunner runner;
         private TextWriter writer;
         private ITestResult result;
-
-        private class DebugTestListener : ITestListener
-        {
-            private readonly TestPage owner;
-
-            public DebugTestListener(TestPage owner)
-            {
-                this.owner = owner;
-            }
-
-            public void TestStarted(ITest test)
-            {
-                owner.Write(string.Format("<{0}:", test.Name));
-            }
-
-            public void TestFinished(ITestResult result)
-            {
-                owner.WriteLine(string.Format(":{0}>", result.ResultState));
-            }
-
-            public void TestOutput(TestOutput output) { }
-        }
 
         public TestPage()
         {
@@ -47,6 +28,7 @@ namespace NUnitLite.Runner.WindowsPhone8
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             this.runner = new NUnitLiteTestAssemblyRunner(new NUnitLiteTestAssemblyBuilder());
+            this.listener = new DebugOutputTestListener();
             this.callingAssembly = this.callingAssembly ?? Assembly.GetCallingAssembly();
             this.writer = new TextBlockWriter(this.ScratchArea);
 
@@ -85,7 +67,7 @@ namespace NUnitLite.Runner.WindowsPhone8
 
         private void ExecuteTests()
         {
-            result = runner.Run(TestListener.NULL, TestFilter.Empty);
+            result = runner.Run(listener, testFilter);
 
             Dispatcher.BeginInvoke(ReportTestResults);
         }

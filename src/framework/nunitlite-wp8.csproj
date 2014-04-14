@@ -83,6 +83,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Api\CompositeTestListener.cs" />
+    <Compile Include="Api\DebugOutputTestListener.cs" />
     <Compile Include="Api\ExpectedExceptionData.cs" />
     <Compile Include="Api\IParameterDataSource.cs" />
     <Compile Include="Api\IPropertyBag.cs" />
@@ -348,6 +350,7 @@
     <Compile Include="Runner\WindowsPhone8\TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Runner\WindowsPhone8\TextBlockTestListener.cs" />
     <Compile Include="Runner\WindowsPhone8\TextBlockWriter.cs">
       <SubType>Code</SubType>
     </Compile>
